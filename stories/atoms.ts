@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VTextarea from '~/components/atoms/VTextarea.vue'
 import VInput from '~/components/atoms/VInput.vue'
 import VHeading from '~/components/atoms/VHeading.vue'
 import VTexts from '~/components/atoms/VTexts.vue'
@@ -85,3 +86,18 @@ storiesOf('Atoms', module)
       `
     }
   }, { info: {} })
+  .add('VTextarea', () => ({
+    components: { VTextarea },
+    props: {
+      width: { default: text('width', '') },
+      error: { default: boolean('エラー', false) }
+    },
+    data() {
+      return {
+        value: ''
+      }
+    },
+    template: `
+      <VTextarea v-model="value" :width="width" :aria-invalid="error" name="story" />
+    `
+  }), { info: {} })
