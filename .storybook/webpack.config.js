@@ -35,21 +35,12 @@ module.exports = async ({ config }) => {
       }
     ]
   })
-
-  config.module.rules.push({
-    enforce: 'pre',
-    test: /\.ts$/,
-    loader: 'ts-loader',
-    exclude: /(node_modules)|(stories)/
-  })
-
   config.module.rules.push({
     enforce: 'pre',
     test: /\.(js|vue)$/,
     loader: 'eslint-loader',
     exclude: /(node_modules)|(stories)/
   })
-
   config.module.rules.push({
     test: /\.ts$/,
     loader: 'ts-loader',
@@ -57,33 +48,27 @@ module.exports = async ({ config }) => {
       appendTsSuffixTo: [/\.vue$/]
     }
   })
-
   config.module.rules.push({
     test: /\.tsx$/,
     loader: 'ts-loader'
   })
-
   config.module.rules.push({
     test: /\.vue$/,
     loader: 'storybook-addon-vue-info/loader',
     enforce: 'post'
   })
-
   config.module.rules.push({
     test: /\.css$/,
     loader: 'style-loader!css-loader'
   })
-
   config.module.rules.push({
     test: /\.svg$/,
     loader: 'svg-url-loader'
   })
-
   config.module.rules.push({
     test: /\.(orf|eot|ttf|woff|woff2)(\?.+)?$/,
     loader: 'url-loader'
   })
-
   config.module.rules.push({
     test: /\.(png|jpe?g|gif)$/,
     loader: 'url-loader',
