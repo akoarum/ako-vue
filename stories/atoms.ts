@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VTexts from '~/components/atoms/VTexts.vue'
 import VButton from '~/components/atoms/VButton.vue'
 
 storiesOf('Atoms', module)
@@ -33,4 +34,15 @@ storiesOf('Atoms', module)
     methods: {
       click: action('click')
     }
+  }), { info: {} })
+  .add('VTexts', () => ({
+    components: { VTexts },
+    props: {
+      texts: { default: text('テキスト', '吾輩は猫である。名前はまだ無い。\nどこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャー') },
+      caution: { default: boolean('Caution', false) },
+      small: { default: boolean('Small', false) }
+    },
+    template: `
+      <VTexts :caution="caution" :small="small">{{ texts }}</VTexts>
+    `
   }), { info: {} })
