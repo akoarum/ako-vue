@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean } from '@storybook/addon-knobs'
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VHeading from '~/components/atoms/VHeading.vue'
 import VTexts from '~/components/atoms/VTexts.vue'
 import VButton from '~/components/atoms/VButton.vue'
 
@@ -44,5 +45,16 @@ storiesOf('Atoms', module)
     },
     template: `
       <VTexts :caution="caution" :small="small">{{ texts }}</VTexts>
+    `
+  }), { info: {} })
+  .add('VHeading', () => ({
+    components: { VHeading },
+    props: {
+      texts: { default: text('テキスト', '吾輩は猫である。') },
+      level: { default: number('見出しレベル', 2) },
+      visual: { default: number('見た目の見出しレベル', 2) },
+    },
+    template: `
+      <VHeading :level="level" :visual="visual">{{ texts }}</VHeading>
     `
   }), { info: {} })
