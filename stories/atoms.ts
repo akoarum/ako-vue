@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs'
+import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VInput from '~/components/atoms/VInput.vue'
 import VHeading from '~/components/atoms/VHeading.vue'
 import VTexts from '~/components/atoms/VTexts.vue'
 import VButton from '~/components/atoms/VButton.vue'
@@ -58,3 +59,29 @@ storiesOf('Atoms', module)
       <VHeading :level="level" :visual="visual">{{ texts }}</VHeading>
     `
   }), { info: {} })
+  .add('VInput', () => {
+    const type = select('type', {
+      text: 'text',
+      number: 'number',
+      email: 'email',
+      tel: 'tel',
+      password: 'password'
+    }, 'text')
+
+    return {
+      components: { VInput },
+      props: {
+        type: { default: type },
+        width: { default: text('width', '') },
+        error: { default: boolean('エラー', false) }
+      },
+      data() {
+        return {
+          value: ''
+        }
+      },
+      template: `
+        <VInput v-model="value" :type="type" :width="width" :aria-invalid="error" name="story" />
+      `
+    }
+  }, { info: {} })
