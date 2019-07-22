@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VRadio from '~/components/atoms/VRadio.vue'
 import VTextarea from '~/components/atoms/VTextarea.vue'
 import VInput from '~/components/atoms/VInput.vue'
 import VHeading from '~/components/atoms/VHeading.vue'
@@ -99,5 +100,16 @@ storiesOf('Atoms', module)
     },
     template: `
       <VTextarea v-model="value" :width="width" :aria-invalid="error" name="story" />
+    `
+  }), { info: {} })
+  .add('VRadio', () => ({
+    components: { VRadio },
+    data() {
+      return {
+        value: ''
+      }
+    },
+    template: `
+      <VRadio v-model="value" value="test">ラジオ項目</VRadio>
     `
   }), { info: {} })
