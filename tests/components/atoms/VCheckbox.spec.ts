@@ -6,7 +6,13 @@ describe('VCheckbox', () => {
 
   beforeEach(() => {
     wrapper = shallowMount(VCheckbox, {
-      propsData: {}
+      propsData: {
+        value: 'test',
+        checkedValues: []
+      },
+      slots: {
+        default: 'テスト'
+      }
     })
   })
 
