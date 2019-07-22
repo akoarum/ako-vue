@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VCheckbox from '~/components/atoms/VCheckbox.vue'
 import VRadio from '~/components/atoms/VRadio.vue'
 import VTextarea from '~/components/atoms/VTextarea.vue'
 import VInput from '~/components/atoms/VInput.vue'
@@ -111,5 +112,19 @@ storiesOf('Atoms', module)
     },
     template: `
       <VRadio v-model="value" value="test">ラジオ項目</VRadio>
+    `
+  }), { info: {} })
+  .add('VCheckbox', () => ({
+    components: { VCheckbox },
+    props: {
+      error: { default: boolean('エラー', false) }
+    },
+    data() {
+      return {
+        value: []
+      }
+    },
+    template: `
+      <VCheckbox v-model="value" :aria-invalid="error" value="test">チェックボックス項目</VCheckbox>
     `
   }), { info: {} })
