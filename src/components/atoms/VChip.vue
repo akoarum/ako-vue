@@ -36,6 +36,11 @@ export default Vue.extend({
     padding: 6px 10px 7px;
     font-size: 1.4rem;
   }
+
+  @include media-max {
+    padding: 5px 8px 6px;
+    font-size: 1.3rem;
+  }
 }
 
 .-primary {
