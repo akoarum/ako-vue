@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VLabel from '~/components/atoms/VLabel.vue'
 import VMask from '~/components/atoms/VMask.vue'
 import VChip from '~/components/atoms/VChip.vue'
 import VCheckbox from '~/components/atoms/VCheckbox.vue'
@@ -157,4 +158,14 @@ storiesOf('Atoms', module)
     methods: {
       click: action('click')
     }
+  }), { info: {} })
+  .add('VLabel', () => ({
+    components: { VLabel },
+    props: {
+      label: { default: text('ラベル', 'ラベルテキスト') },
+      span: { default: boolean('span要素', false) }
+    },
+    template: `
+      <VLabel :span="span">{{ label }}</VLabel>
+    `
   }), { info: {} })
