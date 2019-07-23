@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VChip from '~/components/atoms/VChip.vue'
 import VCheckbox from '~/components/atoms/VCheckbox.vue'
 import VRadio from '~/components/atoms/VRadio.vue'
 import VTextarea from '~/components/atoms/VTextarea.vue'
@@ -126,5 +127,17 @@ storiesOf('Atoms', module)
     },
     template: `
       <VCheckbox v-model="value" :aria-invalid="error" value="test">チェックボックス項目</VCheckbox>
+    `
+  }), { info: {} })
+  .add('VChip', () => ({
+    components: { VChip },
+    props: {
+      texts: { default: text('テキスト', 'テキストラベル') },
+      primary: { default: boolean('Primary', false) },
+      secondary: { default: boolean('Secondary', false) },
+      caution: { default: boolean('Caution', false) }
+    },
+    template: `
+      <VChip :primary="primary" :secondary="secondary" :caution="caution">{{ texts }}</VChip>
     `
   }), { info: {} })
