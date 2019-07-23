@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text, number, select, boolean } from '@storybook/addon-knobs'
+import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VMask from '~/components/atoms/VMask.vue'
 import VChip from '~/components/atoms/VChip.vue'
 import VCheckbox from '~/components/atoms/VCheckbox.vue'
 import VRadio from '~/components/atoms/VRadio.vue'
@@ -140,4 +141,20 @@ storiesOf('Atoms', module)
     template: `
       <VChip :primary="primary" :secondary="secondary" :caution="caution">{{ texts }}</VChip>
     `
+  }), { info: {} })
+  .add('VMask', () => ({
+    components: { VMask },
+    props: {
+      color: { default: color('背景', 'rgba(0, 0, 0, 0.8)') }
+    },
+    template: `
+      <VMask
+        :color="color"
+        style="width: 100px; height: 100px; border: 1px solid #000;"
+        @click="click"
+      />
+    `,
+    methods: {
+      click: action('click')
+    }
   }), { info: {} })
