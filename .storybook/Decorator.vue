@@ -7,8 +7,10 @@
 <script>
 import Vue from 'vue'
 import Vuex from 'vuex'
+import windowSize from '../src/plugins/windowSize'
 
 Vue.use(Vuex)
+Vue.use(windowSize)
 
 export default Vue.extend({
   name: 'Decorator',
