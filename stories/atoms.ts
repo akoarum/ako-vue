@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VContainer from '~/components/atoms/VContainer.vue'
 import VLabel from '~/components/atoms/VLabel.vue'
 import VMask from '~/components/atoms/VMask.vue'
 import VChip from '~/components/atoms/VChip.vue'
@@ -169,3 +170,24 @@ storiesOf('Atoms', module)
       <VLabel :span="span">{{ label }}</VLabel>
     `
   }), { info: {} })
+  .add('VContainer', () => {
+    const tag = select('タグ', {
+      div: 'div',
+      section: 'section',
+      article: 'article',
+      aside: 'aside'
+    }, 'div')
+    const bg = color('背景色', '')
+    return {
+      components: { VContainer },
+      props: {
+        tag: { default: tag },
+        color: { default: bg }
+      },
+      template: `
+        <VContainer :tag="tag" :color="color">
+          <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。</p>
+        </VContainer>
+      `
+    }
+  }, { info: {} })
