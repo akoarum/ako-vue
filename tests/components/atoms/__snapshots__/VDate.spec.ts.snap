@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VDate initialized snapshot 1`] = `
+<time
+  class="vDate"
+  datetime="Tue Jan 01 2019 09:00:00 GMT+0900 (GMT+09:00)"
+>
+  2019年1月1日 9時0分
+</time>
+`;
