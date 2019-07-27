@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VDate from '~/components/atoms/VDate.vue'
 import VContainer from '~/components/atoms/VContainer.vue'
 import VLabel from '~/components/atoms/VLabel.vue'
 import VMask from '~/components/atoms/VMask.vue'
@@ -191,3 +192,14 @@ storiesOf('Atoms', module)
       `
     }
   }, { info: {} })
+  .add('VDate', () => ({
+    components: { VDate },
+    data() {
+      return {
+        time: new Date()
+      }
+    },
+    template: `
+      <VDate :datetime="time" />
+    `
+  }), { info: {} })
