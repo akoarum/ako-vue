@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VPager from '~/components/atoms/VPager.vue'
 import VTabs from '~/components/atoms/VTabs.vue'
 import VDate from '~/components/atoms/VDate.vue'
 import VContainer from '~/components/atoms/VContainer.vue'
@@ -228,3 +229,23 @@ storiesOf('Atoms', module)
       `
     }
   }, { info: {} })
+  .add('VPager', () => ({
+    components: { VPager },
+    props: {
+      small: { default: boolean('Small', false) }
+    },
+    data() {
+      return {
+        items: [
+          { id: 1, to: 0 },
+          { id: 2, to: 1 },
+          { id: 3, to: 2 },
+          { id: 4, to: 3 }
+        ],
+        current: 0
+      }
+    },
+    template: `
+      <VPager :items="items" :current="current" :small="small" />
+    `
+  }), { info: {} })

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VPager initialized snapshot 1`] = `
+<ul
+  class="vPager"
+>
+  <li
+    class="vPager__item"
+  >
+    <button
+      aria-current="true"
+      class="vPager__btn"
+      type="button"
+    >
+      <span>
+        1
+      </span>
+    </button>
+  </li>
+  <li
+    class="vPager__item"
+  >
+    <button
+      class="vPager__btn"
+      type="button"
+    >
+      <span>
+        2
+      </span>
+    </button>
+  </li>
+  <li
+    class="vPager__item"
+  >
+    <button
+      class="vPager__btn"
+      type="button"
+    >
+      <span>
+        3
+      </span>
+    </button>
+  </li>
+  <li
+    class="vPager__item"
+  >
+    <button
+      class="vPager__btn"
+      type="button"
+    >
+      <span>
+        4
+      </span>
+    </button>
+  </li>
+</ul>
+`;
