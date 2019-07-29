@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VList from '~/components/atoms/VList.vue'
 import VPager from '~/components/atoms/VPager.vue'
 import VTabs from '~/components/atoms/VTabs.vue'
 import VDate from '~/components/atoms/VDate.vue'
@@ -249,3 +250,29 @@ storiesOf('Atoms', module)
       <VPager :items="items" :current="current" :small="small" />
     `
   }), { info: {} })
+  .add('VList', () => {
+    const tag = select('タグ', {
+      ul: 'ul',
+      ol: 'ol'
+    }, 'ul')
+
+    return {
+      components: { VList },
+      props: {
+        tag: { default: tag },
+        number: { default: boolean('ナンバリング', false) }
+      },
+      data() {
+        return {
+          items: [
+            { id: 1, label: 'リスト項目1' },
+            { id: 2, label: 'リスト項目2' },
+            { id: 3, label: 'リスト項目3' }
+          ]
+        }
+      },
+      template: `
+        <VList :items="items" :tag="tag" :number="number" />
+      `
+    }
+  }, { info: {} })
