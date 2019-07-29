@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text, number, select, boolean, color } from '@storybook/addon-knobs'
 import { withInfo } from 'storybook-addon-vue-info'
+import VTabs from '~/components/atoms/VTabs.vue'
 import VDate from '~/components/atoms/VDate.vue'
 import VContainer from '~/components/atoms/VContainer.vue'
 import VLabel from '~/components/atoms/VLabel.vue'
@@ -203,3 +204,27 @@ storiesOf('Atoms', module)
       <VDate :datetime="time" />
     `
   }), { info: {} })
+  .add('VTabs', () => {
+    const current = select('カレント', {
+      項目1: '#tab1',
+      項目2: '#tab2',
+      項目3: '#tab3'
+    }, '#tab1')
+    return {
+      components: { VTabs },
+      data() {
+        return {
+          tabs: [
+            { id: 1, to: '#tab1', label: '項目1' },
+            { id: 2, to: '#tab2', label: '項目2' },
+            { id: 3, to: '#tab3', label: '項目3' }
+          ],
+          link: { default: boolean('リンク', false) },
+          current
+        }
+      },
+      template: `
+        <VTabs :tabs="tabs" :current="current" />
+      `
+    }
+  }, { info: {} })

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VTabs initialized snapshot 1`] = `
+<ul
+  class="vTabs"
+  role="tablist"
+>
+  <li
+    class="vTabs__item"
+    role="presentation"
+  >
+    <button
+      aria-controls="tab1"
+      aria-selected="true"
+      class="vTabs__tab"
+      role="tab"
+      type="button"
+    >
+      <span>
+        項目1
+      </span>
+    </button>
+  </li>
+  <li
+    class="vTabs__item"
+    role="presentation"
+  >
+    <button
+      aria-controls="tab2"
+      aria-selected="false"
+      class="vTabs__tab"
+      role="tab"
+      type="button"
+    >
+      <span>
+        項目2
+      </span>
+    </button>
+  </li>
+  <li
+    class="vTabs__item"
+    role="presentation"
+  >
+    <button
+      aria-controls="tab3"
+      aria-selected="false"
+      class="vTabs__tab"
+      role="tab"
+      type="button"
+    >
+      <span>
+        項目3
+      </span>
+    </button>
+  </li>
+</ul>
+`;
